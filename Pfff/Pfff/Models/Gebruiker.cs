@@ -10,5 +10,6 @@ namespace Pfff.Models
         private string Wachtwoord { get; set; }
         public int Punten { get; set; }
         public int Cameras { get; set; }
+
     }
 }

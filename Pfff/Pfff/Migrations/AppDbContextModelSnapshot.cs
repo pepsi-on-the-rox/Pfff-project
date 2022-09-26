@@ -61,6 +61,9 @@ namespace Pfff.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GebruikerID"), 1L, 1);
 
+                    b.Property<int>("Cameras")
+                        .HasColumnType("int");
+
                     b.Property<string>("GebruikersNaam")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -75,13 +78,13 @@ namespace Pfff.Migrations
 
             modelBuilder.Entity("Pfff.Models.Camera", b =>
                 {
-                    b.HasOne("Pfff.Models.Gebruiker", "Gebruiker")
+                    b.HasOne("Pfff.Models.Gebruiker", "gebruiker")
                         .WithMany()
                         .HasForeignKey("GebruikerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Gebruiker");
+                    b.Navigation("gebruiker");
                 });
 #pragma warning restore 612, 618
         }
