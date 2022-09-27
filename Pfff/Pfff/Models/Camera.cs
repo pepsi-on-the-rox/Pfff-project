@@ -14,8 +14,9 @@ namespace Pfff.Models
         public float Longitude { get; set; }
         public string Specificatie { get; set; }
         public string Beschrijving { get; set; }
+
         
-        public Gebruiker GebruikerID { get; set; }
+        public Gebruiker Gebruiker { get; set; }
 
 
         

@@ -2,52 +2,32 @@
 
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Latitute)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Longitude)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Specificatie)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Beschrijving)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Latitute)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Longitude)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specificatie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Beschrijving)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CameraID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CameraID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CameraID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<style>
+    #map {
+        position: absolute;
+        top: 58px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+</style>
+
+<body>
+<div id="map">
+    <a href="https://www.maptiler.com/" style="position:absolute;left:10px;bottom:10px;z-index:999;"><img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+
+</div>
+<p><a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a></p>
+
+<script>
+    var map = L.map('map').setView([50.88326, 5.96211], 17);
+    var gl = L.mapboxGL({
+        attribution: "\u003ca href="https://www.maptiler.com/copyright" target="_blank"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href="https://www.openstreetmap.org/copyright/" target="_blank"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+            style: 'https://api.maptiler.com/maps/streets-v2/style.json?key=7e5vZsXTdPmqMQVPZPx2'
+        }).addTo(map);
+
+</script>
