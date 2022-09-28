@@ -8,11 +8,13 @@ using Microsoft.EntityFrameworkCore;
 using Pfff.Data;
 using Pfff.Models;
 
+
 namespace Pfff.Controllers
 {
     public class CameraController : Controller
     {
         private readonly AppDbContext _context;
+        
 
         public CameraController(AppDbContext context)
         {
@@ -22,8 +24,28 @@ namespace Pfff.Controllers
         // GET: Camera
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Cameras.ToListAsync());
+
+            string markers = " ";
+
+            foreach (var obj in _context.Cameras)
+            {
+                if (obj.CameraID == 1)
+                {
+
+                }
+                else
+                {
+                    markers = markers + " + ";
+                }
+                markers = markers + "  L.marker([" + Convert.ToString(obj.Longitude) + ", " + Convert.ToString(obj.Latitute) + "]).addTo(map)";
+            }
+            
+
+            return View(await _context.Cameras.ToListAsync());
         }
+
+
+
 
         // GET: Camera/Details/5
         public async Task<IActionResult> Details(int? id)
