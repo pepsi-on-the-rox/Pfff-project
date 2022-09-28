@@ -29,7 +29,7 @@
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("<b>Nieuwe camera toevoegen: </b> <br> " + e.latlng.toString())
+            .setContent("<b>Nieuwe camera toevoegen: </b> <br><b>Merk:</> <input type = “Specificatie”> <br> <b> Beschrijving </b> <br> <input type = “Beschrijving”>  " + e.latlng.toString())
             .openOn(map);
     }
 
@@ -56,7 +56,7 @@
         markers = "  L.marker([" + Convert.ToString(obj.Longitude) + ", " + Convert.ToString(obj.Latitute) + "]).addTo(map);";
 
     <script>var marker = @markers
-                marker.bindPopup("<b>Camera ID: </b>@Convert.ToString(obj.CameraID)<br><b>Merk: </b>@Convert.ToString(obj.Specificatie)<br><b>Beschrijving: </b><br> @Convert.ToString(obj.Beschrijving) ").openPopup();
+                marker.bindPopup("<b>Camera ID: </b>@Convert.ToString(obj.CameraID)<br><b>Merk: </b>@Convert.ToString(obj.Specificatie)<br><b>Beschrijving: </b><br> @Convert.ToString(obj.Beschrijving)  ").openPopup();
             
     </script>
 

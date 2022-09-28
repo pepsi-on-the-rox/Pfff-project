@@ -25,20 +25,7 @@ namespace Pfff.Controllers
         public async Task<IActionResult> Index()
         {
 
-            string markers = " ";
-
-            foreach (var obj in _context.Cameras)
-            {
-                if (obj.CameraID == 1)
-                {
-
-                }
-                else
-                {
-                    markers = markers + " + ";
-                }
-                markers = markers + "  L.marker([" + Convert.ToString(obj.Longitude) + ", " + Convert.ToString(obj.Latitute) + "]).addTo(map)";
-            }
+           
             
 
             return View(await _context.Cameras.ToListAsync());
