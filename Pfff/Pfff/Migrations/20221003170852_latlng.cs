@@ -4,7 +4,7 @@
 
 namespace Pfff.Migrations
 {
-    public partial class AddCameraToDatabase : Migration
+    public partial class latlng : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,8 +29,7 @@ namespace Pfff.Migrations
                 {
                     CameraID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Latitute = table.Column<float>(type: "real", nullable: false),
-                    Longitude = table.Column<float>(type: "real", nullable: false),
+                    latlng = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Specificatie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Beschrijving = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GebruikerID = table.Column<int>(type: "int", nullable: false)

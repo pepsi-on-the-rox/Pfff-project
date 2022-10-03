@@ -11,8 +11,8 @@ using Pfff.Data;
 namespace Pfff.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220925105946_AddCameraToDatabase")]
-    partial class AddCameraToDatabase
+    [Migration("20221003170852_latlng")]
+    partial class latlng
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,13 +38,11 @@ namespace Pfff.Migrations
                     b.Property<int>("GebruikerID")
                         .HasColumnType("int");
 
-                    b.Property<float>("Latitute")
-                        .HasColumnType("real");
-
-                    b.Property<float>("Longitude")
-                        .HasColumnType("real");
-
                     b.Property<string>("Specificatie")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("latlng")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -80,13 +78,13 @@ namespace Pfff.Migrations
 
             modelBuilder.Entity("Pfff.Models.Camera", b =>
                 {
-                    b.HasOne("Pfff.Models.Gebruiker", "gebruiker")
+                    b.HasOne("Pfff.Models.Gebruiker", "Gebruiker")
                         .WithMany()
                         .HasForeignKey("GebruikerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("gebruiker");
+                    b.Navigation("Gebruiker");
                 });
 #pragma warning restore 612, 618
         }

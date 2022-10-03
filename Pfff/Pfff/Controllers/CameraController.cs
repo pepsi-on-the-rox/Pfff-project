@@ -70,7 +70,7 @@ namespace Pfff.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CameraID,Latitute,Longitude,Specificatie,Beschrijving")] Camera camera)
+        public async Task<IActionResult> Create([Bind("CameraID,latlng,Specificatie,Beschrijving")] Camera camera)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +102,7 @@ namespace Pfff.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CameraID,Latitute,Longitude,Specificatie,Beschrijving")] Camera camera)
+        public async Task<IActionResult> Edit(int id, [Bind("latlng,Specificatie,Beschrijving")] Camera camera)
         {
             if (id != camera.CameraID)
             {
