@@ -26,14 +26,7 @@
 
     var popup = L.popup();
 
-    function onMapClick(e) {
-        popup
-            .setLatLng(e.latlng)
-            .setContent("<b>Nieuwe camera toevoegen: </b> <br><b>Merk:</> <input type = “Specificatie”> <br> <b> Beschrijving </b> <br> <input type = “Beschrijving”>  " + e.latlng.toString() )
-            .openOn(map);
-    }
-
-    map.on('click', onMapClick);
+    
 
     var gl = L.mapboxGL({
         attribution: "\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\"\u003e\u0026copy; MapTiler\u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",

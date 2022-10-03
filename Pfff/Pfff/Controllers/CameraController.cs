@@ -32,7 +32,14 @@ namespace Pfff.Controllers
         }
 
 
+        public async Task<IActionResult> Home()
+        {
 
+
+
+
+            return View(await _context.Cameras.ToListAsync());
+        }
 
         // GET: Camera/Details/5
         public async Task<IActionResult> Details(int? id)
