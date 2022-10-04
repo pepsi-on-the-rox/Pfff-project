@@ -8,13 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Pfff.Data;
 using Pfff.Models;
 
-
 namespace Pfff.Controllers
 {
     public class CameraController : Controller
     {
         private readonly AppDbContext _context;
-        
 
         public CameraController(AppDbContext context)
         {
@@ -24,20 +22,11 @@ namespace Pfff.Controllers
         // GET: Camera
         public async Task<IActionResult> Index()
         {
-
-           
-            
-
-            return View(await _context.Cameras.ToListAsync());
+              return View(await _context.Cameras.ToListAsync());
         }
-
 
         public async Task<IActionResult> Home()
         {
-
-
-
-
             return View(await _context.Cameras.ToListAsync());
         }
 
@@ -69,8 +58,8 @@ namespace Pfff.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CameraID,latlng,Specificatie,Beschrijving")] Camera camera)
+        
+        public async Task<IActionResult> Create([Bind("CameraID,Locatie,Specificatie,Beschrijving")] Camera camera)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +91,7 @@ namespace Pfff.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("latlng,Specificatie,Beschrijving")] Camera camera)
+        public async Task<IActionResult> Edit(int id, [Bind("CameraID,Locatie,Specificatie,Beschrijving")] Camera camera)
         {
             if (id != camera.CameraID)
             {

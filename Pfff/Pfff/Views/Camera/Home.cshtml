@@ -46,7 +46,7 @@
 
     foreach (var obj in Model)
     {
-        markers = "  L.marker([" + Convert.ToString(obj.latlng) +"]).addTo(map);";
+        markers = "  L.marker([" + Convert.ToString(obj.Locatie) +"]).addTo(map);";
 
     <script>var marker = @markers
                 marker.bindPopup("<b>Camera ID: </b>@Convert.ToString(obj.CameraID)<br><b>Merk: </b>@Convert.ToString(obj.Specificatie)<br><b>Beschrijving: </b><br> @Convert.ToString(obj.Beschrijving)  ").openPopup();

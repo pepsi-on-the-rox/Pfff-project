@@ -36,11 +36,11 @@ namespace Pfff.Migrations
                     b.Property<int>("GebruikerID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Specificatie")
+                    b.Property<string>("Locatie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("latlng")
+                    b.Property<string>("Specificatie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -48,7 +48,7 @@ namespace Pfff.Migrations
 
                     b.HasIndex("GebruikerID");
 
-                    b.ToTable("Cameras");
+                    b.ToTable("Cameras", (string)null);
                 });
 
             modelBuilder.Entity("Pfff.Models.Gebruiker", b =>
@@ -71,7 +71,7 @@ namespace Pfff.Migrations
 
                     b.HasKey("GebruikerID");
 
-                    b.ToTable("Gebruiker");
+                    b.ToTable("Gebruiker", (string)null);
                 });
 
             modelBuilder.Entity("Pfff.Models.Camera", b =>

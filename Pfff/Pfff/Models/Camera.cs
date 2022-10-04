@@ -8,12 +8,11 @@ namespace Pfff.Models
     {
         [Key]
         public int CameraID { get; set; }
-        [Required]
-        public string latlng { get; set; }
+        public string Locatie { get; set; }
         public string Specificatie { get; set; }
         public string Beschrijving { get; set; }
 
-        
+        [ForeignKey("GebruikerID")]
         public Gebruiker Gebruiker { get; set; }
 
 

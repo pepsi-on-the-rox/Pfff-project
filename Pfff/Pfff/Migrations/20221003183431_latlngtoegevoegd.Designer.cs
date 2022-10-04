@@ -11,8 +11,8 @@ using Pfff.Data;
 namespace Pfff.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221003170852_latlng")]
-    partial class latlng
+    [Migration("20221003183431_latlngtoegevoegd")]
+    partial class latlngtoegevoegd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,11 +38,11 @@ namespace Pfff.Migrations
                     b.Property<int>("GebruikerID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Specificatie")
+                    b.Property<string>("Locatie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("latlng")
+                    b.Property<string>("Specificatie")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
