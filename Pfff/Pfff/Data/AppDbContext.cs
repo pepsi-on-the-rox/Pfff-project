@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Pfff.Data
 {
-    public class AppDbContext:DbContext
+    public class AppDbContext : DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> contextOptions) : base(contextOptions)
         {
