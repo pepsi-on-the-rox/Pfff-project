@@ -29,8 +29,9 @@
     function onMapClick(e) {
         popup
             .setLatLng(e.latlng)
-            .setContent("Nieuwe camera toevoegen:  <br> Merk: <br> <input type = “Specificatie”> <br>  Beschrijving: <br> <input type = “Beschrijving”> <br>  <button type=button>Toevoegen</button>  " + e.latlng.toString())
+            .setContent('<button type="button" onclick="location.href=\'@Url.Action("Create","Camera")\'">Camera toevoegen</button>')
             .openOn(map);
+
     }
 
     map.on('click', onMapClick);
@@ -48,7 +49,7 @@
 </script>
 
 @{
-
+    //"Nieuwe camera toevoegen:  <br> Merk: <br> <input type = “Specificatie”> <br>  Beschrijving: <br> <input type = “Beschrijving”> <br>  <button type=button>Toevoegen</button>  " + e.latlng.toString()
     string markers = " ";
 
     foreach (var obj in Model)

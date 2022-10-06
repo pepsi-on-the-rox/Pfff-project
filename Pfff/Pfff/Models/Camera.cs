@@ -12,8 +12,8 @@ namespace Pfff.Models
         public string Specificatie { get; set; }
         public string Beschrijving { get; set; }
 
-        [ForeignKey("GebruikerID")]
-        public Gebruiker Gebruiker { get; set; }
+
+        public int Gebruiker { get; set; }
 
 
         
