@@ -1,5 +1,19 @@
 ﻿@model Pfff.Models.Camera
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
+
+
+    
+@{
+    string coords;
+    //Html.Hidden("coords", coords);
+    //Context.Session.GetString("Locatie")
+    //coords = TempData["CameraLocatie"];
+}
 
 <h1>Create</h1>
 
@@ -9,14 +23,9 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Gebruiker" class="control-label"></label>
-                <input asp-for="Gebruiker" class="form-control" />
-                <span asp-validation-for="Gebruiker" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+            <div class="form-group" style=display:none;>
                 <label asp-for="Locatie" class="control-label"></label>
-                <input asp-for="Locatie" class="form-control" />
+                <input asp-for="Locatie" id="locatiecoords" class="form-control" />
                 <span asp-validation-for="Locatie" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -30,11 +39,26 @@
                 <span asp-validation-for="Beschrijving" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Gebruiker" class="control-label"></label>
+                <input asp-for="Gebruiker" class="form-control" />
+                <span asp-validation-for="Gebruiker" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
+
+<script>
+    var coords = sessionStorage.getItem("Locatie");
+    document.getElementById("locatiecoords").value = coords;
+
+        //function setMyValue(coords) {
+        //    $('#coords').val(coords);
+        //}
+
+</script>
 
 <div>
     <a asp-action="Index">Back to List</a>

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,17 +20,16 @@ namespace Pfff.Controllers
         }
 
         // GET: Camera
-        [Authorize]
         public async Task<IActionResult> Index()
         {
               return View(await _context.Cameras.ToListAsync());
         }
 
-
         public async Task<IActionResult> Home()
         {
             return View(await _context.Cameras.ToListAsync());
         }
+
 
         // GET: Camera/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -61,8 +59,8 @@ namespace Pfff.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        
-        public async Task<IActionResult> Create([Bind("CameraID,Locatie,Specificatie,Beschrijving")] Camera camera)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("CameraID,Locatie,Specificatie,Beschrijving,Gebruiker")] Camera camera)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +92,7 @@ namespace Pfff.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CameraID,Locatie,Specificatie,Beschrijving")] Camera camera)
+        public async Task<IActionResult> Edit(int id, [Bind("CameraID,Locatie,Specificatie,Beschrijving,Gebruiker")] Camera camera)
         {
             if (id != camera.CameraID)
             {
