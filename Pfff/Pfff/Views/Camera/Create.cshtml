@@ -1,5 +1,9 @@
 ﻿@model Pfff.Models.Camera
 @using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,6 +17,8 @@
     //Html.Hidden("coords", coords);
     //Context.Session.GetString("Locatie")
     //coords = TempData["CameraLocatie"];
+    
+
 }
 
 <h1>Create</h1>
@@ -38,9 +44,9 @@
                 <input asp-for="Beschrijving" class="form-control" />
                 <span asp-validation-for="Beschrijving" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style=display:none;>
                 <label asp-for="Gebruiker" class="control-label"></label>
-                <input asp-for="Gebruiker" class="form-control" />
+                <input asp-for="Gebruiker" id="email" class="form-control" value="@UserManager.GetUserName(User)" />
                 <span asp-validation-for="Gebruiker" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -57,6 +63,13 @@
         //function setMyValue(coords) {
         //    $('#coords').val(coords);
         //}
+
+
+    
+  
+
+
+
 
 </script>
 

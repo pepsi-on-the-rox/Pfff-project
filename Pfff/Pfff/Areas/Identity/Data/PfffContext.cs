@@ -1,14 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Pfff.Data;
 
 public class PfffContext : IdentityDbContext<IdentityUser>
 {
+
+    [PersonalData]
+    public int punten { get; set; }
+
     public PfffContext(DbContextOptions<PfffContext> options)
         : base(options)
     {
+        
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

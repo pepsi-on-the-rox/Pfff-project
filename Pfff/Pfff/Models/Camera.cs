@@ -13,7 +13,7 @@ namespace Pfff.Models
         public string Beschrijving { get; set; }
 
 
-        public int Gebruiker { get; set; }
+        public string Gebruiker { get; set; }
 
 
         

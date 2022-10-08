@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +14,8 @@ namespace Pfff.Controllers
     public class CameraController : Controller
     {
         private readonly AppDbContext _context;
+       
+
 
         public CameraController(AppDbContext context)
         {
@@ -68,6 +71,9 @@ namespace Pfff.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+
+
             return View(camera);
         }
 
