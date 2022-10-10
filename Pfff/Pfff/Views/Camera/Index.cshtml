@@ -33,14 +33,14 @@
 
     function onMapClick(e) 
     {
-
+        //Popup voor wanneer je op de map klikt
         var locatie = e.latlng.lat.toString() + ", " + e.latlng.lng.toString();
         sessionStorage.setItem("Locatie", locatie);
 
         var link = '@Url.Action("Create", "Camera", new{Locatie = "replace"})';
         link = link.replace("replace", locatie); 
 
-        //TempData["CameraLocatie"] = locatie;
+        
 
         popup
             .setLatLng(e.latlng)
@@ -68,8 +68,7 @@
 
 
 @{
-    //"Nieuwe camera toevoegen:  <br> Merk: <br> <input type = “Specificatie”> <br>  Beschrijving: <br> <input type = “Beschrijving”> <br>  <button type=button>Toevoegen</button>  " + e.latlng.toString()
-    //e.latlng.toString()
+    //Maakt alle markers aan van de database met popups
     string markers = " ";
 
     foreach (var obj in Model)
