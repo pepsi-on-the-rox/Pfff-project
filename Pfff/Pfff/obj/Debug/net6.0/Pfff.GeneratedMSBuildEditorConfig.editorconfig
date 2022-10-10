@@ -15,8 +15,64 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Camera/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Camera/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Camera/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Camera/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Camera/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJhXEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Camera/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FtZXJhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Home/Overons.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPdmVyb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Home/Privacy.cshtml]
@@ -25,6 +81,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lukas/OneDrive/Bureaublad/Zuyd/Pfff/Pfff/Pfff/Views/Shared/_ValidationScriptsPartial.cshtml]

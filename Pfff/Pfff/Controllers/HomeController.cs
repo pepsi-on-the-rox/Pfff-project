@@ -1,6 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pfff.Models;
 using System.Diagnostics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Pfff.Data;
+using Pfff.Models;
+
 
 namespace Pfff.Controllers
 {
@@ -14,6 +24,10 @@ namespace Pfff.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult Overons()
         {
             return View();
         }

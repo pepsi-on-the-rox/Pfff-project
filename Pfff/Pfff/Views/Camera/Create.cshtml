@@ -1,0 +1,75 @@
+﻿@model Pfff.Models.Camera
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+    
+@{
+    string coords;
+    //Html.Hidden("coords", coords);
+    //Context.Session.GetString("Locatie")
+    //coords = TempData["CameraLocatie"];
+    
+
+}
+
+<h1>Create</h1>
+
+<h4>Camera</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style=display:none;>
+                <label asp-for="Locatie" class="control-label"></label>
+                <input asp-for="Locatie" id="locatiecoords" class="form-control" />
+                <span asp-validation-for="Locatie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie" class="control-label"></label>
+                <input asp-for="Specificatie" class="form-control" />
+                <span asp-validation-for="Specificatie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Beschrijving" class="control-label"></label>
+                <input asp-for="Beschrijving" class="form-control" />
+                <span asp-validation-for="Beschrijving" class="text-danger"></span>
+            </div>
+            <div class="form-group" style=display:none;>
+                <label asp-for="Gebruiker" class="control-label"></label>
+                <input asp-for="Gebruiker" id="email" class="form-control" value="@UserManager.GetUserName(User)" />
+                <span asp-validation-for="Gebruiker" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    var coords = sessionStorage.getItem("Locatie");
+    document.getElementById("locatiecoords").value = coords;
+
+
+
+
+
+</script>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
