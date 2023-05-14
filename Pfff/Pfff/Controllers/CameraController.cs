@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,7 +22,7 @@ namespace Pfff.Controllers
         {
             _context = context;
         }
-
+        [Authorize]
         // GET: Camera
         public async Task<IActionResult> Index()
         {
@@ -52,6 +53,7 @@ namespace Pfff.Controllers
             return View(camera);
         }
 
+        [Authorize]
         // GET: Camera/Create
         public IActionResult Create()
         {

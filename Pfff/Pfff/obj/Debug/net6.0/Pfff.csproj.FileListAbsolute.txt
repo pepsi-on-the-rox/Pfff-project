@@ -270,3 +270,8 @@ C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\bin\Debug\net6.0\Microsof
 C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\obj\Debug\net6.0\Pfff.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\bin\Debug\net6.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
+C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\obj\Debug\net6.0\staticwebassets\msbuild.Pfff.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\obj\Debug\net6.0\staticwebassets\msbuild.build.Pfff.props
+C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Pfff.props
+C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Pfff.props
+C:\Users\lukas\OneDrive\Bureaublad\Zuyd\Pfff\Pfff\Pfff\obj\Debug\net6.0\staticwebassets.pack.json
