@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\lukas\\.nuget\\packages\\": {}
+    "C:\\Users\\Pepijn\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lukas\\OneDrive\\Bureaublad\\Zuyd\\Pfff\\Pfff\\Pfff\\Pfff.csproj",
+      "projectUniqueName": "C:\\Users\\Pepijn\\Source\\Repos\\Pfff-project\\Pfff\\Pfff\\Pfff.csproj",
       "projectName": "Pfff",
-      "projectPath": "C:\\Users\\lukas\\OneDrive\\Bureaublad\\Zuyd\\Pfff\\Pfff\\Pfff\\Pfff.csproj",
-      "packagesPath": "C:\\Users\\lukas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lukas\\OneDrive\\Bureaublad\\Zuyd\\Pfff\\Pfff\\Pfff\\obj\\",
+      "projectPath": "C:\\Users\\Pepijn\\Source\\Repos\\Pfff-project\\Pfff\\Pfff\\Pfff.csproj",
+      "packagesPath": "C:\\Users\\Pepijn\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pepijn\\Source\\Repos\\Pfff-project\\Pfff\\Pfff\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lukas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Pepijn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
