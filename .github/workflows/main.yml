@@ -1,7 +1,7 @@
 ---
  - hosts: all
    vars:
-     - devops_password: 'abcddefsfdfdfdfdfdfdfdfdfdfd'
+     - devops_password: 'B2C6D'
    gather_facts: no
    remote_user: ubuntu
    become: true
