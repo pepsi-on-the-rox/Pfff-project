@@ -1,28 +1,48 @@
-name: publish
+---
+ - hosts: all
+   vars:
+     - devops_password: 'B2C6D'
+   gather_facts: no
+   remote_user: ubuntu
+   become: true
 
-on: 
-  workflow_dispatch:
-  push:
-    branches: 
-    - main
-    
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Setup .Net
-        uses: action/setup-dotnet@v3
-        with:
-          dotnet-version: '6.0.x'
-          
-      - name: Restore
-        run: dotnet restore ./Pfff.sln
-        
-      - name: Build 
-        run: dotnet build ./Pfff.sln --configuration Release --no-restore
-        
-      - name: Publish
-        run: dotnet publish ./Pfff.sln --configuration Release --no-build
+tasks:
+- name: Add a new user named devops
+     user:
+          name: devops
+          shell: /bin/bash
+          password: "{{ devops_password }}"
+
+- name: Add devops user to the sudoers
+     copy:
+          dest: "/etc/sudoers.d/devops"
+          content: "devops  ALL=(ALL)  NOPASSWD: ALL"
+
+- name: Deploy SSH Key
+     authorized_key: user=devops
+                     key="{{ lookup('file', '/home/devops/.ssh/id_rsa.pub') }}"
+                     state=present
+
+- name: Disable Password Authentication
+     lineinfile:
+           dest=/etc/ssh/sshd_config
+           regexp='^PasswordAuthentication'
+           line="PasswordAuthentication no"
+           state=present
+           backup=yes
+
+- name: Disable Root Login
+     lineinfile:
+           dest=/etc/ssh/sshd_config
+           regexp='^PermitRootLogin'
+           line="PermitRootLogin no"
+           state=present
+           backup=yes
+     notify:
+       - restart ssh
+
+handlers:
+   - name: restart ssh
+     service:
+       name=sshd
+       state=restarted
