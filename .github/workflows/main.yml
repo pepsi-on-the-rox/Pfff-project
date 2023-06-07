@@ -29,7 +29,7 @@ jobs:
         run: |
          dotnet restore
          dotnet build --configuration Release
-         dotnet publish -c Release --property:PublishDir='Pfff/Pfff/Pfff.csproj' 
+         dotnet publish -c Release --property:PublishDir='Pfff.csproj' 
 
 
 
@@ -38,8 +38,8 @@ jobs:
       - name: 'Run Azure webapp deploy action using Azure Credentials'
         uses: azure/webapps-deploy@v2
         with: 
-          app-name: Pfff.sln # Replace with your app name
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Pfff'
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Pfff.csproj'
       
       - name: logout
         run: |
