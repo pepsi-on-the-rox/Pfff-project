@@ -39,7 +39,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: DevOpsB2DSpellenPlatform.sln
+          name: Pfff.sln
 
       - name: Deply
         id: deploy-to-webapp
