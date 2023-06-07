@@ -35,10 +35,14 @@ jobs:
          dotnet restore
          
       - name: build project
-        run: dotnet build --configuration Release 
+        run: |
+         cd ./Pfff/Pfff
+         dotnet build --configuration Release 
       
       - name: publish project
-        run: dotnet publish -c Release
+        run: |
+         cd ./Pfff/Pfff
+         dotnet publish -c Release
 
 
 
