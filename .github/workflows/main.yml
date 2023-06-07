@@ -38,7 +38,7 @@ jobs:
         run: dotnet build --configuration Release 
       
       - name: publish project
-        run: dotnet publish -c Release --property:PublishDir='./Pfff/Pfff' 
+        run: dotnet publish -c Release
 
 
 
