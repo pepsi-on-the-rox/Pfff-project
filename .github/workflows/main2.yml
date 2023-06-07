@@ -39,7 +39,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
         with:
-          name: Pfff.sln
+          name: Pfff
           path: /home/runner/work/Pfff-project/Pfff-project
 
       - name: Deply
