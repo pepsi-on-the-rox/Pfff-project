@@ -3,7 +3,7 @@ name: .NET Core
 on: [push]
 
 env:
-  AZURE_WEBAPP_NAME: Pfff.sln    # set this to your application's name
+  AZURE_WEBAPP_NAME: devopsb2dspellenplatform.azurewebsites.net    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: ''      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
 
@@ -29,7 +29,7 @@ jobs:
         run: |
          dotnet restore
          dotnet build --configuration Release
-         dotnet publish -c Release --property:PublishDir='Pfff/Pfff' 
+         dotnet publish -c Release --property:PublishDir='./Pfff' 
 
 
 
@@ -39,7 +39,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         with: 
           app-name: Pfff.sln # Replace with your app name
-          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Pfff.sln'
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Pfff'
       
       - name: logout
         run: |
