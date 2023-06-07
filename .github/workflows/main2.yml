@@ -20,8 +20,10 @@ jobs:
       working-directory: Pfff
     - name: Build
       run: dotnet build --no-restore
+      working-directory: Pfff
     - name: Test
       run: dotnet test --no-build --verbosity normal
+      working-directory: Pfff
       
       
   deploy:
