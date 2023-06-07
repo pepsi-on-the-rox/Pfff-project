@@ -29,7 +29,7 @@ jobs:
         run: |
          dotnet restore
          dotnet build --configuration Release
-         dotnet publish -c Release --property:PublishDir='${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Pfff.sln' 
+         dotnet publish -c Release --property:PublishDir='Pfff' 
 
           
       # Deploy to Azure Web apps
