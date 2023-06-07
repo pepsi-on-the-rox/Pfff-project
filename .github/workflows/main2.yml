@@ -1,16 +1,53 @@
-on: [push]
-
-name: AzureLoginSample
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
 
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-    
-    - uses: azure/login@v1
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --no-restore
+    - name: Test
+      run: dotnet test --no-build --verbosity normal
+      
+      
+  deploy:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Development'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: DevOpsB2DSpellenPlatform.sln
+
+      - name: Deply
+        id: deploy-to-webapp
+        - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    - run: |
-        az webapp list --query "[?state=='Running']"
+        
+      #- name: Deploy to Azure Web App
+       # id: deploy-to-webapp
+        #uses: azure/webapps-deploy@v2
+        #with:
+          #app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          #publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          #package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
