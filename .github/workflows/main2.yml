@@ -24,11 +24,10 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: Pfff
-    - name: Save public folder
+    - name: Save
       uses: actions/upload-artifact@v2
       with:
         name: Pfff
-        path: Pfff
       
   deploy:
     permissions:
@@ -45,7 +44,7 @@ jobs:
         with:
           name: Pfff
 
-      - name: Deply
+      - name: Deploy
         id: login
         uses: azure/login@v1
         with:
