@@ -38,8 +38,8 @@ jobs:
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v3
-        #with:
-          #name: Pfff/Pfff.sln
+        with:
+          name: Pfff
 
       - name: Deply
         id: login
