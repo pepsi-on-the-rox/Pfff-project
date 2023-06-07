@@ -1,42 +1,48 @@
----
- - hosts: all
-   vars:
-     - devops_password: 'B2C6D'
-   gather_facts: no
-   remote_user: ubuntu
-   become: true
-   tasks:
-   - name: Add a new user named devops
-     user:
-          name: devops
-          shell: /bin/bash
-          password: "{{ devops_password }}"
-   - name: Add devops user to the sudoers
-     copy:
-          dest: "/etc/sudoers.d/devops"
-          content: "devops  ALL=(ALL)  NOPASSWD: ALL"
-   - name: Deploy SSH Key
-     authorized_key: user=devops
-                     key="{{ lookup('file', '/home/devops/.ssh/id_rsa.pub') }}"
-                     state=present
-   - name: Disable Password Authentication
-     lineinfile:
-           dest=/etc/ssh/sshd_config
-           regexp='^PasswordAuthentication'
-           line="PasswordAuthentication no"
-           state=present
-           backup=yes
-   - name: Disable Root Login
-     lineinfile:
-           dest=/etc/ssh/sshd_config
-           regexp='^PermitRootLogin'
-           line="PermitRootLogin no"
-           state=present
-           backup=yes
-     notify:
-       - restart ssh
-   handlers:
-   - name: restart ssh
-     service:
-       name=sshd
-       state=restarted
+name: .NET Core
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: Pfff.sln    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'Pfff'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@main
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
+      - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+        run: nuget restore
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Run msbuild
+        run: msbuild .\Pfff.sln
+
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using Azure Credentials'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: Pfff.sln # Replace with your app name
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Pfff'
+      
+      - name: logout
+        run: |
+          az logout
