@@ -29,12 +29,16 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }} 
       
-      - name: dotnet build and publish
+      - name: install dependencies
         run: |
          cd ./Pfff/Pfff
          dotnet restore
-         dotnet build --configuration Release 
-         dotnet publish -c Release --property:PublishDir='./Pfff/Pfff' 
+         
+      - name: build project
+        run: dotnet build --configuration Release 
+      
+      - name: publish project
+        run: dotnet publish -c Release --property:PublishDir='./Pfff/Pfff' 
 
 
 
