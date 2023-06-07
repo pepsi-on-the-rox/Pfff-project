@@ -40,9 +40,9 @@ jobs:
 
       - name: Deply
         id: deploy-to-webapp
-        - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - uses: azure/login@v1
+        with:
+           creds: ${{ secrets.AZURE_CREDENTIALS }}
         
       #- name: Deploy to Azure Web App
        # id: deploy-to-webapp
