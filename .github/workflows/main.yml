@@ -65,7 +65,7 @@ jobs:
        with: 
          app-name: ${{ env.AZURE_WEBAPP_NAME }}
          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
-         package: '.\Pfff\Pfff\bin\Release\net6.0\publish'
+         package: '/home/runner/work/Pfff-project/Pfff-project/Pfff/Pfff/bin/Release/net6.0/publish/'
        
      - name: logout
        run: |
