@@ -63,7 +63,7 @@ jobs:
        uses: azure/webapps-deploy@v2
        with: 
          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
-         package: './Pfff/Pfff/bin/Release/net6.0/Pfff.dll'
+         package: './Pfff/Pfff/bin/Debug/net6.0/Pfff.dll'
        
      - name: logout
        run: |
