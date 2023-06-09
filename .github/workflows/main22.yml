@@ -56,6 +56,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: DevOpsB2DSpellenPlatform
+          app-name: devopsb2dspellenplatform.azurewebsites.net
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           package: Pfff
