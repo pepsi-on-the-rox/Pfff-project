@@ -23,18 +23,13 @@ jobs:
           dotnet-version: '6.0.x'
           
       - name: Restore
-        run: | 
-          cd ./Pfff/Pfff
-          dotnet restore ./Pfff/Pfff.sln
+        run: dotnet restore ./Pfff/Pfff.sln
         
       - name: Build
-        run: | 
-          cd ./Pfff/Pfff
-          dotnet build ./Pfff/Pfff.sln --configuration Release --no-restore
+        run: dotnet build ./Pfff/Pfff.sln --configuration Release --no-restore
         
       - name: Publish
-        run: |
-          dotnet publish ./Pfff/Pfff.sln --configuration Release --no-build
+        run: dotnet publish ./Pfff/Pfff.sln --configuration Release --no-build
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
