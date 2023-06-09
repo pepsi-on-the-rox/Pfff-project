@@ -25,7 +25,7 @@ jobs:
       - name: Restore
         run: | 
           cd ./Pfff/Pfff
-          dotnet restore ./Pfff/Pfff/Pfff.sln
+          dotnet restore
         
       - name: Build
         run: | 
