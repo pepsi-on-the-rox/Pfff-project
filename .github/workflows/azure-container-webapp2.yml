@@ -15,8 +15,9 @@
 #
 # 4. Create three app settings on your Azure Web app:
 #       DOCKER_REGISTRY_SERVER_URL: Set this to "https://ghcr.io"
-#       DOCKER_REGISTRY_SERVER_USERNAME: pepsi-on-the-rox
+#       DOCKER_REGISTRY_SERVER_USERNAME: pepsi-on-the-rox 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
 #       DOCKER_REGISTRY_SERVER_PASSWORD: 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
+
 #
 # 5. Change the value for the AZURE_WEBAPP_NAME.
 #
