@@ -25,17 +25,16 @@ jobs:
       - name: Restore
         run: | 
           cd ./Pfff/Pfff
-          dotnet restore
+          dotnet restore .Pfff/Pfff.sln
         
       - name: Build
         run: | 
           cd ./Pfff/Pfff
-          dotnet build ./Pfff/Pfff/Pfff.sln --configuration Release --no-restore
+          dotnet build .Pfff/Pfff.sln --configuration Release --no-restore
         
       - name: Publish
-        run: | 
-          cd ./Pfff/Pfff
-          dotnet publish ./Pfff/Pfff/Pfff.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
+        run: |
+          dotnet publish .Pfff/Pfff.sln --configuration Release --no-build --output '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}'
         
       - name: Deployment
         uses: azure/webapps-deploy@v2
