@@ -19,18 +19,18 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: DevOpsB2DSpellenPlatform
+      working-directory: Pfff-project
     - name: Build
       run: dotnet build --no-restore
-      working-directory: DevOpsB2DSpellenPlatform
+      working-directory: Pfff-project
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: DevOpsB2DSpellenPlatform
+      working-directory: Pfff-project
     - name: Save
       uses: actions/upload-artifact@v2
       with:
-        name: DevOpsB2DSpellenPlatform
-        path: DevOpsB2DSpellenPlatform
+        name: Pfff-project
+        path: Pfff-project
       #
   deploy:
     permissions:
@@ -39,14 +39,14 @@ jobs:
     needs: build
     environment:
       name: 'Development'
-      url: devopsb2dspellenplatform.azurewebsites.net
+      url: B2Dtestservice.azurewebsites.net
 
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: DevOpsB2DSpellenPlatform
-          path: DevOpsB2DSpellenPlatform
+          name: Pfff-project
+          path: Pfff-project
 
       - name: Deploy
         id: login
@@ -58,6 +58,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: DevOpsB2DSpellenPlatform 
+          app-name: B2Dtestservice 
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: DevOpsB2DSpellenPlatform
+          package: Pfff-project
