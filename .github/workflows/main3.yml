@@ -25,7 +25,7 @@ jobs:
       working-directory: Pfff
     - name: Test
       run: dotnet test --no-build --verbosity normal
-      working-directory: Pfff-project
+      working-directory: Pfff
     - name: Save
       uses: actions/upload-artifact@v2
       with:
