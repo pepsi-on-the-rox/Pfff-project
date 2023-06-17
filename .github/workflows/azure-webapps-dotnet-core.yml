@@ -21,7 +21,7 @@ name: les see if workie
 
 env:
   AZURE_WEBAPP_NAME: DevOpsB2DSpellenPlatform    # set this to the name of your Azure Web App
-  AZURE_WEBAPP_PACKAGE_PATH: './Pfff/Pfff/Pfff'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '6.0.x'                 # set this to the .NET Core version to use
 
 on:
@@ -53,10 +53,14 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: |
+          cd Pfff/Pfff/
+          dotnet build --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: |
+          cd Pfff/Pfff/
+          dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
