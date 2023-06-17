@@ -60,7 +60,7 @@ jobs:
       - name: dotnet publish
         run: |
           cd Pfff/Pfff/
-          dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+          dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Pfff
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
