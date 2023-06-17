@@ -1,10 +1,11 @@
 name: second deploy test
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+    - branch1
+
 env:
   AZURE_WEBAPP_NAME: DevOpsB2DSpellenPlatform    # set this to your application's name
 
