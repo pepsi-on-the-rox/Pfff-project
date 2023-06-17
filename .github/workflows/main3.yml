@@ -29,7 +29,7 @@ jobs:
     - name: Save
       uses: actions/upload-artifact@v2
       with:
-        name: Pfff-project
+        name: Pfff
         path: Pfff
       #
   deploy:
@@ -45,7 +45,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
         with:
-          name: Pfff-project
+          name: Pfff
           path: Pfff
 
       - name: Deploy
@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: devopsb2dspellenplatform 
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          package: Pfff-project
+          package: Pfff
