@@ -1,0 +1,25 @@
+name: Azure Deployment Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install Ansible
+        run: pip install ansible
+
+      - name: Run Ansible playbook
+        env:
+          VM_NAME: ${{ github.event.inputs.vm_name }}
+        run: ansible-playbook -i inventory testPlayboekje.yml --extra-vars "vm_name=${VM_NAME}"
