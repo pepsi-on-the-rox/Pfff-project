@@ -1,0 +1,7 @@
+---
+- name: test input playbook
+  hosts: localhost
+  tasks:
+    - name: Echo VM name
+      debug:
+        msg: "VM Name: {{ vm_name }}"
