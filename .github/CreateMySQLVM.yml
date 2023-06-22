@@ -1,0 +1,130 @@
+- name: Create VM
+  hosts: localhost
+  connection: local
+  vars:
+    - resource_group: B2C6D
+    - ipadressname: TestIp
+    - nicname: TestNIC
+    - virtual_network: myVnet
+    - subnet: mySubnet
+    - security_group: secgroup001
+    - vmname: TestVM
+    - vmsize: Standard_B1s
+    - admin_username: TestVM
+    - public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKRTkgktS3nlLpaJMWqb/liYo4yiQLrfZqiJovCZCOz8qMHJexbPBNmU0IBcHCA7Dy3lq/viVEqMwZz7z6xUnfmJ/noxMNz6aXsNSwuub5N5LyRCDxMSKBMFulonmYff13FsQ8Wv4Mkd7J1t3wEVOXry4m0s5/ExcBBuySjGbcw5o9yxzGPvl3KtTq2TaQpW71gSSk8tqiPnnKpZrtlnk3DSDMkF0LK/erK1BbdAtCcR60sUgno7opElOSa1BXXXf3CDn/sidC2u6BwL2J52AXy3NIqxkP8ixWeYdfa7yJMRLONaV/RYkYiDJmqEITzhzN67Dt24rgiN8UbFoANUEB rsa-key-20230615
+  tasks:
+    - name: Create public IP address
+      azure.azcollection.azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "{{ ipadressname }}"
+      register: public_ip_result
+
+    - name: Display Ip result
+      debug:
+        msg: "{{ public_ip_result }}"
+
+    - set_fact:
+        public_ip_address: "{{ public_ip_result.state.ip_address }}"
+
+    - name: Display IP address
+      debug:
+        var: public_ip_address
+
+    - name: Create virtual network interface card
+      azure_rm_networkinterface:
+        resource_group: "{{ resource_group }}"
+        name: "{{ nicname }}"
+        virtual_network: "{{ virtual_network }}"
+        subnet: "{{ subnet }}"
+        public_ip_name: "{{ ipadressname }}"
+        security_group: "{{ security_group }}"
+
+    - name: Create VM
+      azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmname }}"
+        vm_size: "{{ vmsize }}"
+        admin_username: "{{ admin_username }}"
+        ssh_password_enabled: false
+        ssh_public_keys:
+          - path: /home/{{ admin_username }}/.ssh/authorized_keys
+            key_data: "{{ public_key }}"
+        network_interfaces: "{{ nicname }}"
+        image:
+          offer: 0001-com-ubuntu-server-focal-daily
+          publisher: Canonical
+          sku: "20_04-daily-lts"
+          version: latest
+
+    - name: Add public IP to group
+      add_host:
+        name: "{{ public_ip_address }}"
+        groups: mysql_hosts
+
+    - name: Wait for SSH port
+      wait_for:
+        host: "{{ public_ip_address }}"
+        port: 22
+        delay: 10
+        timeout: 180
+      become: false
+
+- name: Install MySQL on VM
+  hosts: mysql_hosts
+  remote_user: TestVM
+  vars:
+    - ansible_ssh_common_args: "-o StrictHostKeyChecking=no -i /home/AnsibleVM/ssh/TestVM_Private_Key.pem"
+    - db_user: mysql
+    - db_pass: PwQ0E4T0J^49
+    - db_name: DevOpsKlasD
+  become: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Installing Mysql  and dependencies
+      package:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+      loop:
+        - mysql-server
+        - mysql-client
+        - python3-mysqldb
+        - libmysqlclient-dev
+      become: yes
+    - name: start and enable mysql service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: creating mysql user
+      mysql_user:
+        name: "{{db_user}}"
+        password: "{{db_pass}}"
+        priv: "*.*:ALL"
+        host: "%"
+        state: present
+
+    - name: creating medium_db
+      mysql_db:
+        name: "{{db_name}}"
+        state: present
+
+    - name: Enable remote login to mysql
+      lineinfile:
+        path: /etc/mysql/mysql.conf.d/mysqld.cnf
+        regexp: "^bind-address"
+        line: "bind-address = 0.0.0.0"
+        backup: yes
+      notify:
+        - Restart mysql
+
+  handlers:
+    - name: Restart mysql
+      service:
+        name: mysql
+        state: restarted

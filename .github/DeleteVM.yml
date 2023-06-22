@@ -1,0 +1,25 @@
+- name: create vm
+  hosts: localhost
+  connection: local
+  vars:
+    - resource_group: B2C6D
+    - vm_name: TestVM
+    - nic_name: TestNIC
+    - ip_name: TestIp
+  tasks:
+    - name: Remove a VM and all resources that were autocreated
+      azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vm_name }}"
+        remove_on_absent: all_autocreated
+        state: absent
+    - name: Delete network interface
+      azure_rm_networkinterface:
+        resource_group: "{{ resource_group }}"
+        name: "{{ nic_name }}"
+        state: absent
+    - name: Delete public ip
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        name: "{{ ip_name }}"
+        state: absent
