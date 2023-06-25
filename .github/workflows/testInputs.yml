@@ -22,4 +22,4 @@ jobs:
       - name: Run Ansible playbook
         env:
           VM_NAME: ${{ github.event.inputs.vm_name }}
-        run: ansible-playbook -i inventory ./testPlayboekje.yml --extra-vars "vm_name=${VM_NAME}"
+        run: ansible-playbook -i inventory testPlayboekje.yml --extra-vars "vm_name=${VM_NAME}"
