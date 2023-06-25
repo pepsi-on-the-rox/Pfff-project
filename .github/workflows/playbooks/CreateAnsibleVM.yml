@@ -1,6 +1,9 @@
 ---
 - name: Create VM
   hosts: localhost
+  pip:
+    name: msrestazure
+    state: latest
   vars:
     - resource_group: B2C6D
     - ipadressname: TestIp
