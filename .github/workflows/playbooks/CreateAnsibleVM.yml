@@ -1,6 +1,6 @@
+---
 - name: Create VM
   hosts: localhost
-  connection: local
   vars:
     - resource_group: B2C6D
     - ipadressname: TestIp
