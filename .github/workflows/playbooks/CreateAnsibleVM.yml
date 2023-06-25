@@ -8,9 +8,9 @@
     - virtual_network: myVnet
     - subnet: mySubnet
     - security_group: secgroup001
-    - vmname: TestVM
+    - vmname: {{ vm_name }}
     - vmsize: Standard_B1s
-    - admin_username: TestVM
+    - admin_username: {{ vm_name }}
     - public_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCKRTkgktS3nlLpaJMWqb/liYo4yiQLrfZqiJovCZCOz8qMHJexbPBNmU0IBcHCA7Dy3lq/viVEqMwZz7z6xUnfmJ/noxMNz6aXsNSwuub5N5LyRCDxMSKBMFulonmYff13FsQ8Wv4Mkd7J1t3wEVOXry4m0s5/ExcBBuySjGbcw5o9yxzGPvl3KtTq2TaQpW71gSSk8tqiPnnKpZrtlnk3DSDMkF0LK/erK1BbdAtCcR60sUgno7opElOSa1BXXXf3CDn/sidC2u6BwL2J52AXy3NIqxkP8ixWeYdfa7yJMRLONaV/RYkYiDJmqEITzhzN67Dt24rgiN8UbFoANUEB rsa-key-20230615
   tasks:
     - name: Create public IP address
